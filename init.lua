@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
-
 -- load plugins
 require("lazy").setup({
   {
@@ -20,6 +19,10 @@ require("lazy").setup({
     lazy = false,
     branch = "v2.5",
     import = "nvchad.plugins",
+  },
+  {
+  'Exafunction/windsurf.vim',
+  event = 'BufEnter'
   },
 
   { import = "plugins" },
@@ -35,3 +38,13 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- ── Auto-save on focus loss, insert leave, or buffer leave ─────────────────────
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertLeave", "TextChanged" }, {
+  pattern = "*",
+  callback = function()
+    if vim.bo.modified then
+      vim.cmd("silent! write")
+    end
+  end,
+})
