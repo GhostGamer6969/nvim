@@ -48,3 +48,25 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertLeave", "TextChang
     end
   end,
 })
+-- Make background transparent
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
+-- 🪟 Make NvimTree transparent whenever it loads
+vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
+  pattern = { "NvimTree" },
+  callback = function()
+    vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NvimTreeVertSplit", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { bg = "none" })
+  end,
+})
+vim.opt.shell = "/usr/bin/fish"
