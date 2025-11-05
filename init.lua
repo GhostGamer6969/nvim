@@ -81,15 +81,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<C-l>", function()
       local line = vim.api.nvim_get_current_line()
 
-      if line:match("^%s*%- %[ %]") then
+      if line:match("^%s*%* %[ %]") then
         -- Toggle unchecked to checked
-        line = line:gsub("%- %[ %]", "- [x]", 1)
-      elseif line:match("^%s*%- %[x%]") then
+        line = line:gsub("%* %[ %]", "* [x]", 1)
+      elseif line:match("^%s*%* %[x%]") then
         -- Toggle checked to unchecked
-        line = line:gsub("%- %[x%]", "- [ ]", 1)
+        line = line:gsub("%* %[x%]", "* [ ]", 1)
       else
         -- No checkbox: add an unchecked checkbox
-        line = "- [ ] " .. line
+        line = "* [ ] " .. line
       end
 
       vim.api.nvim_set_current_line(line)
