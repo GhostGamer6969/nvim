@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
     vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { bg = "none" })
   end,
 })
-vim.opt.shell = "/usr/bin/fish"
+vim.opt.shell = "/usr/bin/zsh"
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
   callback = function()
