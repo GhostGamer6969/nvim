@@ -4,7 +4,22 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      pickers = {
+        find_files = {
+          hidden = true,
+          no_ignore = true
+        }
+      }
+    }
+  },
 
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require("custom.configs.nvim-tree"),
+  },
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -53,6 +68,7 @@ return {
       ---@type render.md.UserConfig
       opts = {},
   },
+
   -- csv
   {
     "hat0uma/csvview.nvim",
@@ -76,6 +92,7 @@ return {
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
   },
+  
   -- python
   {
     "williamboman/mason.nvim",
