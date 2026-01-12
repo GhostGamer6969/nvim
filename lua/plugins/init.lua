@@ -10,15 +10,15 @@ return {
       pickers = {
         find_files = {
           hidden = true,
-          no_ignore = true
-        }
-      }
-    }
+          no_ignore = true,
+        },
+      },
+    },
   },
 
   {
     "nvim-tree/nvim-tree.lua",
-    opts = require("custom.configs.nvim-tree"),
+    opts = require "custom.configs.nvim-tree",
   },
   -- These are some examples, uncomment them if you want to see them work!
   {
@@ -30,43 +30,43 @@ return {
 
   -- rust
   {
-    'mrcjkb/rustaceanvim',
-    version = '^6', -- Recommended
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
     lazy = false, -- This plugin is already lazy
   },
   {
-    'rust-lang/rust.vim',
+    "rust-lang/rust.vim",
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
-    end
+    end,
   },
   {
-    'saecki/crates.nvim',
-    ft = {"toml"},
+    "saecki/crates.nvim",
+    ft = { "toml" },
     config = function()
-      require("crates").setup{
-        completion ={
-          cmp={
-            enabled = true
+      require("crates").setup {
+        completion = {
+          cmp = {
+            enabled = true,
           },
         },
-    }
-    require('cmp').setup.buffer({
-      sources = {{name = 'crates'}}
-    })
-    end
+      }
+      require("cmp").setup.buffer {
+        sources = { { name = "crates" } },
+      }
+    end,
   },
 
   -- markdown
   {
-      'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },            -- if you use the mini.nvim suite
-      -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
-      -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-      ---@module 'render-markdown'
-      ---@type render.md.UserConfig
-      opts = {},
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
 
   -- csv
@@ -92,16 +92,20 @@ return {
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
   },
-  
+
   -- python
   {
     "williamboman/mason.nvim",
-    opts ={
+    opts = {
       ensure_installed = {
         "pyright",
       },
     },
   },
+{
+  "ThePrimeagen/vim-be-good",
+  cmd = "VimBeGood"
+}
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
