@@ -1,6 +1,9 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 vim.keymap.set("n", "<C-F>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<M-C-F>", "<cmd>silent !tmux neww switcher<CR>")
+-- vim.keymap.set("n", "<M-C-F>", "<cmd>silent !tmux neww /home/ghostgamer/Scripts/stream<CR> <cmd>silent !tmux neww rmpc<CR>")
+vim.keymap.set("n", "<M-C-S>", "<cmd>silent !tmux neww rmpc<CR>")
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -21,10 +24,10 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
-  {
-  'Exafunction/windsurf.vim',
-  event = 'BufEnter'
-  },
+  -- {
+  -- 'Exafunction/windsurf.vim',
+  -- event = 'BufEnter'
+  -- },
 
   { import = "plugins" },
 }, lazy_config)

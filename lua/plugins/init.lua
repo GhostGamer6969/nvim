@@ -58,16 +58,6 @@ return {
     end,
   },
 
-  -- markdown
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
 
   -- csv
   {
@@ -93,6 +83,18 @@ return {
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
   },
 
+  {
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
+      vim.cmd("filetype plugin indent on")
+      vim.cmd("syntax enable")
+
+      vim.g.vimtex_view_method = "general"
+      vim.g.vimtex_compiler_method = "tectonic"
+      vim.g.vimtex_quickfix_open_on_warning = 0
+    end,
+  },
   -- python
   {
     "williamboman/mason.nvim",
@@ -106,6 +108,7 @@ return {
   "ThePrimeagen/vim-be-good",
   cmd = "VimBeGood"
 }
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
