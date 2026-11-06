@@ -20,5 +20,10 @@ M.base46 = {
 --          lazyload = false
 --      }
 -- }
+M.ui = {
+	tabufline = {
+		treeOffsetFt = "",
+	},
+}
 
 return M

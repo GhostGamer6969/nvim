@@ -77,12 +77,9 @@ vim.opt.shell = "/usr/bin/zsh"
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
   callback = function()
-    -- Enable render-markdown plugin
-    local ok, render = pcall(require, "render-markdown")
-    if ok then render.enable() end
 
     -- Map Ctrl + l to toggle checkboxes like Obsidian
-    vim.keymap.set("n", "<C-l>", function()
+    vim.keymap.set("n", "<M-l>", function()
       local line = vim.api.nvim_get_current_line()
 
       if line:match("^%s*%* %[ %]") then
